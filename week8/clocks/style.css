@@ -1,0 +1,142 @@
+#clock {
+  position: relative;
+  width: 378px;
+  height: 378px;
+  background-image: url('ios_clock.svg') no-repeat;
+  left: 50%;
+  margin: 5em 0 0 -189px;
+}
+
+#clock div {
+  position: absolute;
+}
+
+/*.clock {
+  border-radius: 50%;
+  background: #fff url('ios_clock.svg') no-repeat center;
+  background-size: 88%;
+  height: 20em;
+  padding-bottom: 31%;
+  position: relative;
+  width: 20em;
+}
+
+.clock.simple:after {
+  background: #000;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  height: 5%;
+  z-index: 10;
+}
+
+.minutes-container, .hours-container, .seconds-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  background: #000;
+  height: 5%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 2.5%;
+}
+
+.minutes {
+  background: #000;
+  height: 10%;
+  left: 49%;
+  position: absolute;
+  top: 10%;
+  transform-origin: 50% 100%;
+  width: 2%;
+}
+
+.seconds {
+  background: #000;
+  height: 20%;
+  left: 49.5%;
+  position: absolute;
+  top: 14%;
+  transform-origin: 50% 80%;
+  width: 1%;
+  z-index: 8;
+}*/
+
+/*@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+.hours-container {
+  animation: rotate 43200s infinite linear;
+}
+.minutes-container {
+  animation: rotate 3600s infinite linear;
+}
+.seconds-container {
+  animation: rotate 60s infinite linear;
+}*/
+
+/*
+.clock {
+  position: relative;
+  margin:0 auto;
+    width:300px;
+    height:300px;
+    border:10px solid lightblue;
+  border-radius:100%;
+}
+.clockcenter{
+  position:absolute;
+  z-index:10;
+  position:relative;
+  border:10px solid;
+  border-radius:100%;
+  width:0px;
+  top:142px;
+  left:140px;
+}
+.hand{
+    position:absolute;
+    width:0px;
+    border:5px solid green;
+  -webkit-transform-origin: center bottom;
+  -moz-transform-origin   : center bottom;
+  -ms-transform -origin   : center bottom;
+  -webkit-transform : rotate(0deg);
+  -moz-transform    : rotate(0deg);
+  -ms-transform     : rotate(0deg);
+  transform: rotate(0deg);
+}
+.secondsHand{
+  z-index:7;
+  top:20px;
+  left:145px;
+  height:122px;
+ border-color:rgb(22, 160, 133);
+}
+.minutesHand{
+  z-index:8;
+  top:38px;
+  left:145px;
+  height:102px;
+  border-color:green;
+}
+.hoursHand{
+  z-index:9;
+  top:68px;
+  left:145px;
+  height:72px;
+  border-color:darkgreen;
+}*/

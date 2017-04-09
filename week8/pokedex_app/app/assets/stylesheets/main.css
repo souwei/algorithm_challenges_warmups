@@ -1,0 +1,12 @@
+.cards-container{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cards{
+  border-radius: 10px;
+  background-color: gray;
+  padding: 10px 0;
+  width: 33%;
+}

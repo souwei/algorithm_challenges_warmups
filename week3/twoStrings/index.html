@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var longest = function(str1,str2){
+  var str1Alphabets = convertStrArray(str1);
+  var str2Alphabets = convertStrArray(str2);
+  var combineAlphabets = str1Alphabets.concat(str2Alphabets);
+  var uniqueAlphabets = [];
+  combineAlphabets.map(function(alpha){
+    if(!uniqueAlphabets.includes(alpha)){
+      uniqueAlphabets.push(alpha);
+    }
+  });
+  uniqueAlphabets.sort();
+  var restrungWord = uniqueAlphabets.join("");
+  return restrungWord;
+};
+
+  var convertStrArray = function(str1){
+    return (str1.split(""));
+  };
+  a = "xyaabbbccccdefww"
+  b = "xxxxyyyyabklmopq"
+  console.log(longest(a,b));
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AJAX MOVIES!</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <label for="">Search Movie Name</label>
+  <input type="text" class="search_term">
+  <span class="myButton">Search It!</span>
+  <div class="search_result">
+    <h3>Search Results For </h3>
+    <div class="line"><h4>Movies</h4></div>
+    </div>
+    <div class="results_wrapper">
+
+    </div>
+    <br>
+  </div>
+<script id="card-template" type="text/x-handlebars-template">
+  <div class="result_container">
+    <img src="{{ Poster}}" alt="">
+    <div class="result_description">
+      <h4><a href="">{{ Title }}</a></h4>
+      <h5>{{ Type }}</h5>
+      <h5>{{ imdbID }}</h5>
+    </div>
+  </div>
+</script>
+
+<script id="card-template-not-found" type="text/x-handlebars-template">
+  <div class="result_container">
+     No Results Found!
+  </div>
+</script>
+
+<script>
+$('.myButton').on('click', function(){
+  var searchTerm = $( ".search_term" ).val();
+  searchMovie(searchTerm);
+})
+//Handle bar version of AJAX movies
+function searchMovie(movieName){
+  $('.results_wrapper').empty()
+  $.ajax({
+        url: 'http://omdbapi.com/?s='+movieName,
+      }).done( function(data) {
+        if( data["Response"] === "True" ) {
+          data["Search"].forEach(function(element) {
+            var source = $('#card-template').html();
+            var template = Handlebars.compile( source );
+            var html = template ( element );
+            $('.results_wrapper').append( html );
+          });
+        }else{
+          var source = $('#card-template-not-found').html();
+          var html = Handlebars.compile( source );
+
+          $('.results_wrapper').append( html );
+        }
+      });
+}
+
+</script>
+</body>
+</html>

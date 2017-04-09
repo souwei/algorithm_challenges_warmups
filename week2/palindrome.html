@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function palindrome(str) {
+ //filter and remove non alpha numeric chars
+  var x = (str.replace(/[^a-z0-9]+/gi,"").toLowerCase());
+  //create an array to break string into characters
+  var array = x.split('');
+  //Reverse array of characters and rejoin
+  array.reverse();
+  var y = (array.join('').toLowerCase());
+  //check if they are equal
+  if(y === x){
+    return true;
+  }
+  else
+    return false;
+
+}
+var userInput = prompt("Check Palindrome Word");
+if(palindrome(userInput)){
+  alert("Your entered word is a palindrome");
+  console.log("Your entered word is a palindrome");
+}else{
+  alert("Your entered word is not a plaindrome");
+  console.log("Your entered word is not a palindrome");
+}
+
+
+</script>
+</body>
+</html>

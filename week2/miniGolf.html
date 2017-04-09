@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+var bob = [3,2,6,11,9,2,6,9,10];
+var jimbo = [5,12,9,22,13,7,16,10,11];
+var fish = [2,2,4,5,4,3,6,4,1];
+var coursePar = [3,4,5,5,3,3,4,3,5];
+
+var getSum = function(total,num){
+	return total + num;
+}
+
+var totalScore = function(scores){
+	return scores.reduce(getSum);
+}
+
+var compareScorePar = function(scores,benchmarkScore){
+	var betScoreArray = [];
+	for(var i=0;i<benchmarkScore.length;i++){
+		if(scores[i]===benchmarkScore[i]){
+			console.log( "Round " + (i+1) + "- Average Score -" + scores[i]);
+		}else if(scores[i]<benchmarkScore[i]){
+			console.log( "Round " + (i+1) + "- Performed better than Par - "+scores[i]);
+		}else {
+			console.log( "Round " + (i+1) + "- Underperformed than Par - "+ scores[i]);
+			betScoreArray.push((scores[i]-benchmarkScore[i]));
+
+		}
+	}
+	return betScoreArray;
+}
+
+console.log("Bob's golf performance");
+var winningsBob = totalScore(compareScorePar(bob,coursePar));
+
+console.log("Jimbo's golf performance");
+var winningsJimbo = totalScore(compareScorePar(jimbo,coursePar));
+
+console.log("Fish's golf performance");
+totalScore(compareScorePar(fish,coursePar));
+
+console.log("Fish's bet on Bob's Play is \$" + winningsBob);
+console.log("Fish's bet on Jimbo's Play is \$" + winningsJimbo);
+
+
+</script>
+</body>
+</html>

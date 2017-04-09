@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script>
+//Fisher-Yates Shuffle
+//Shuffle function Code copied from https://github.com/coolaj86/knuth-shuffle
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
+var grannyTalk = function(talkMessage){
+		var randYear = Math.floor( ( Math.random()*(1950-1930+1) ))+1930;
+		if (talkMessage === talkMessage.toUpperCase()){
+			if(talkMessage === "BYE"){
+				return "What's that honey, i didn't hear you";
+			}
+			return "NO, NOT SINCE "+ randYear;
+		}else{
+			return "SPEAK UP SONNY JIM";
+		}
+}
+
+var grandpaTalk = function(talkMessage){
+	var originalMessage = talkMessage;
+	var vowelsArray = ["a","e","i","o","u"];
+	//Function to collect vowels from a sentence or modify vowels 
+	//within a sentence with a supplied newvowel array length>= vowels in the original sentence
+	var grandpaSpeechInverse = function(sentence,vowels,newVowel){
+	var vowelPlaceHolder =[];
+	var newVowelPlaceHolder =[];
+	var messageArrayLetters;
+	var replace=false;
+	
+	if(newVowel!==undefined){
+		replace = true;
+		newVowelPlaceHolder = shuffle(newVowel);
+	}
+
+	//split string response into array of words 
+	var messageArray = sentence.split(" ");
+	//get into each word element
+	for(var y=0;y<messageArray.length;y++){		
+		//split word element further into an array of characters
+		messageArrayLetters = messageArray[y].split("");
+		//Iterating through each letter
+		for(var z=0;z<messageArrayLetters.length;z++){
+		// console.log(messageArrayLetters[z].toLowerCase());
+		// Checks if letter contains any elements or characters from vowels array
+			if(vowels.includes(messageArrayLetters[z].toLowerCase()) ){
+				if(replace===false){
+					//Collect vowel into array placeholder
+					vowelPlaceHolder.push(messageArrayLetters[z]);
+				}else{
+					//if in replace mode, change element from supplied array with new vowels
+					messageArrayLetters[z]=newVowelPlaceHolder.pop();
+				}
+			}
+		}
+		//Rejoin characters into single word
+		messageArray[y] = messageArrayLetters.join("");
+		
+	}
+	//Rejoin words into single sentence or message
+	var newMsg = messageArray.join(" ");
+	
+	if(replace===true){
+		//replace mode will return 
+		return newMsg;
+	}else{
+		//collection mode will return an array of vowels collected
+		return vowelPlaceHolder;
+	}
+	};
+
+	var collectVowels = grandpaSpeechInverse(originalMessage,vowelsArray);
+	var inversedWords = grandpaSpeechInverse(originalMessage,vowelsArray,collectVowels);
+	return inversedWords;
+}
+
+var granny = grannyTalk(prompt("Grandma says..\'Hello Sonny..\'"));
+var grandpap = grandpaTalk(granny);
+console.log("Grandma replies..."+"\'"+granny+"\'");
+console.log("Grandpa says..."+"\'"+grandpap+"\'");
+
+</script>
+</html>

@@ -1,0 +1,13 @@
+<div class="cards-container">
+  <% @pokemons.each do |pokemon| %>
+  <div class="cards">
+    <h2> Pokemon Name: <%= pokemon.nickname %> </h2>
+    <h2> Pokemon Species: <%= pokemon.species %> </h2>
+    <h2> Level: <%= pokemon.level %> </h2>
+    <img src="<%= pokemon.image_url %>" alt="">
+  </div>
+  <% end %>
+</div>
+<p>
+  <a href="/pokemon/new">New Pokemon</a>
+</p>

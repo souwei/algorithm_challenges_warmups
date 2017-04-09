@@ -1,0 +1,33 @@
+d<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+  <script>
+//Getting user input
+var rows = prompt("Please provide number of rows to print","Rows");
+var columnsPairs = prompt("Please provide the Width","Columns");
+var customSymbol = prompt("Please provide custom symbol","symbol");
+var board = "";
+for(var i=0;i<rows;i++){
+  //Setting up empty string or reset every loop
+  var boardRowString ="";
+  //alternate presentation based off row index number
+  if(i%2==0){
+    for(var x=0;x<columnsPairs;x++){
+      boardRowString = boardRowString.concat(customSymbol+ " ");
+    }
+  } else {
+    for(var y=0;y<columnsPairs;y++){
+      boardRowString = boardRowString.concat(" "+customSymbol);
+    }
+  }
+  board += boardRowString + "\n";
+}
+console.log(board);
+  </script>
+</html>
